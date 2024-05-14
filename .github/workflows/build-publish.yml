@@ -1,0 +1,56 @@
+name: build and publish
+
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+      - ".gitignore"
+      - "LICENCE"
+      - "CODEOWNERS"
+    branches:
+      - main
+jobs:
+  build-publish:
+    permissions:
+      contents: write
+      packages: write
+      actions: read
+      security-events: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: java-kotlin
+      - name: test and build
+        run: ./build.sh
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+      - name: prepare release
+        run: ./prepare-release.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: publish
+        run: ./gradlew -Pversion="$VERSION_TAG" publish
+        env:
+          ORG_GRADLE_PROJECT_githubUser: x-access-token
+          ORG_GRADLE_PROJECT_githubPassword: ${{ secrets.GITHUB_TOKEN }}
+      - name: create release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ env.VERSION_TAG }}
+          name: ${{ env.VERSION_TAG }}
+          body: ${{ env.CHANGE_LOG }}
+          draft: false
+          prerelease: false
+
