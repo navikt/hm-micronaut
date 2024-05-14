@@ -20,7 +20,9 @@ subprojects {
     val logbackClassicVersion = "1.4.5"
     val logbackEncoderVersion = "7.2"
     val awaitilityVersion = "4.2.0"
-
+    val jacksonVersion = "2.14.1"
+    val mockkVersion = "1.13.4"
+    val kotestVersion = "5.5.5"
 
     group = "com.github.navikt"
     version = properties["version"] ?: "local-build"
@@ -28,10 +30,15 @@ subprojects {
     dependencies {
         api("ch.qos.logback:logback-classic:$logbackClassicVersion")
         api("net.logstash.logback:logstash-logback-encoder:$logbackEncoderVersion")
-
+        api("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
+        api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4")
         testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
         testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+        testImplementation("io.mockk:mockk:$mockkVersion")
+        testImplementation("io.micronaut.test:micronaut-test-kotest5")
+        testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+        testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
         testImplementation("org.awaitility:awaitility:$awaitilityVersion")
     }

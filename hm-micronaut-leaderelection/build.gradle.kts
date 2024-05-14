@@ -10,6 +10,7 @@ plugins {
 dependencies {
     runtimeOnly("org.yaml:snakeyaml")
     kapt("io.micronaut:micronaut-inject")
+    implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
