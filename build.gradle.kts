@@ -20,7 +20,7 @@ subprojects {
     val logbackClassicVersion = "1.4.5"
     val logbackEncoderVersion = "7.2"
     val awaitilityVersion = "4.2.0"
-    val jacksonVersion = "2.14.1"
+    val jacksonVersion = "2.17.0"
     val mockkVersion = "1.13.4"
     val kotestVersion = "5.5.5"
 
