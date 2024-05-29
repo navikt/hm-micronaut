@@ -1,4 +1,5 @@
 package no.nav.hm.micronaut.leaderelection
+
 import io.micronaut.context.annotation.Value
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.client.annotation.Client

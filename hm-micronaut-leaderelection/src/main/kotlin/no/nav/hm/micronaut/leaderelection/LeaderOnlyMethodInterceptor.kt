@@ -1,9 +1,8 @@
-package no.nav.hm.grunndata.register.leaderelection
+package no.nav.hm.micronaut.leaderelection
 
 import io.micronaut.aop.MethodInterceptor
 import io.micronaut.aop.MethodInvocationContext
 import jakarta.inject.Singleton
-import no.nav.hm.micronaut.leaderelection.LeaderElection
 import org.slf4j.LoggerFactory
 
 

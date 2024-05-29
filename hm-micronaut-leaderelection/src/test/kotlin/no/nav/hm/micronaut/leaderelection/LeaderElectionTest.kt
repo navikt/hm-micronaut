@@ -4,7 +4,6 @@ import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Singleton
-import no.nav.hm.grunndata.register.leaderelection.LeaderOnly
 import org.junit.jupiter.api.Test
 
 @MicronautTest

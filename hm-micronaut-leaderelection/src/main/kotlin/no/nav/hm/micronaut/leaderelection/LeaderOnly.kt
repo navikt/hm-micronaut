@@ -1,4 +1,4 @@
-package no.nav.hm.grunndata.register.leaderelection
+package no.nav.hm.micronaut.leaderelection
 
 import io.micronaut.aop.Around
 import io.micronaut.context.annotation.Type
