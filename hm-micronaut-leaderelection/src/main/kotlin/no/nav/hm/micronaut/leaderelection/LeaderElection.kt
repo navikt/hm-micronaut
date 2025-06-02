@@ -1,6 +1,7 @@
 package no.nav.hm.micronaut.leaderelection
 
 import io.micronaut.context.annotation.Value
+import io.micronaut.core.annotation.Introspected
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.client.annotation.Client
 import jakarta.inject.Singleton
@@ -36,4 +37,5 @@ interface GetLeaderClient {
 
 }
 
+@Introspected
 data class Elector(val name: String)
