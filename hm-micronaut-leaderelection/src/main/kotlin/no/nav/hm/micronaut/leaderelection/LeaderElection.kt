@@ -1,12 +1,12 @@
 package no.nav.hm.micronaut.leaderelection
 
 import io.micronaut.context.annotation.Value
-import io.micronaut.core.annotation.Introspected
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.client.annotation.Client
 import jakarta.inject.Singleton
 import org.slf4j.LoggerFactory
 import java.net.InetAddress
+import io.micronaut.serde.annotation.Serdeable
 
 @Singleton
 class LeaderElection(private val client: GetLeaderClient,
@@ -37,5 +37,5 @@ interface GetLeaderClient {
 
 }
 
-@Introspected
+@Serdeable
 data class Elector(val name: String)

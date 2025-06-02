@@ -11,6 +11,7 @@ plugins {
 subprojects {
     apply {
         plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.kapt")
         plugin("java")
         plugin("maven-publish")
     }
@@ -32,6 +33,7 @@ subprojects {
         api("net.logstash.logback:logstash-logback-encoder:$logbackEncoderVersion")
         api("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
         api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+        api("io.micronaut.serde:micronaut-serde-api")
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4")
         testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
         testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
