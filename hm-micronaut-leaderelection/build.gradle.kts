@@ -1,5 +1,3 @@
-import org.gradle.internal.execution.history.changes.ExecutionStateChanges.incremental
-
 val micronautVersion="5.0.2"
 
 plugins {
