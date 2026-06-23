@@ -1,16 +1,14 @@
-import org.gradle.internal.execution.history.changes.ExecutionStateChanges.incremental
-
-val micronautVersion="4.4.2"
+val micronautVersion="5.0.2"
 
 plugins {
-    kotlin("kapt")
-    id("io.micronaut.library") version "4.5.3"
+    id("com.google.devtools.ksp") version "2.3.7"
+    id("io.micronaut.library") version "5.0.0"
 }
 
 dependencies {
     runtimeOnly("org.yaml:snakeyaml")
-    kapt("io.micronaut:micronaut-inject")
-    kapt("io.micronaut.serde:micronaut-serde-processor")
+    ksp("io.micronaut:micronaut-inject")
+    ksp("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
