@@ -2,7 +2,7 @@ val micronautVersion="5.0.2"
 
 plugins {
     id("com.google.devtools.ksp") version "2.3.7"
-    id("io.micronaut.library") version micronautVersion
+    id("io.micronaut.library") version "5.0.2"
 }
 
 dependencies {
