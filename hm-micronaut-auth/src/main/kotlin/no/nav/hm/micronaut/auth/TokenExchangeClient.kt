@@ -8,7 +8,7 @@ import io.micronaut.http.client.annotation.Client
 @Client("tokenx")
 interface TokenExchangeClient {
 
-    @Post("/")
+    @Post("")
     suspend fun exchangeToken(
         @Body request: TokenExchangeRequest
     ): HttpResponse<TokenExchangeResponse>
