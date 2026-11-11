@@ -15,6 +15,7 @@ dependencies {
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     // security
     implementation("io.micronaut.security:micronaut-security-jwt")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
     ksp("io.micronaut.security:micronaut-security-annotations")
     testImplementation("io.micronaut.test:micronaut-test-junit5")
 }
