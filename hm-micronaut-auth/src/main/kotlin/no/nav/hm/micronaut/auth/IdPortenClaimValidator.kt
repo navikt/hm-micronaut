@@ -11,13 +11,9 @@ import org.slf4j.LoggerFactory
 class IdPortenClaimValidator<T>(@param:Value("\${micronaut.security.token.jwt.claims-validators.acr}") private val acr: String):
     GenericJwtClaimsValidator<T> {
 
-    override fun validate(claims: Claims, request: T?): Boolean {
-        LOG.debug("Validating JWT token for acr claim {}", claims[ACR_CLAIM])
-        return claims[ACR_CLAIM] == acr
-    }
+    override fun validate(claims: Claims, request: T?): Boolean = claims[ACR_CLAIM] == acr
 
     companion object {
         const val ACR_CLAIM = "acr"
-        private val LOG = LoggerFactory.getLogger(IdPortenClaimValidator::class.java)
     }
 }
